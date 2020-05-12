@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>GitHub+hexo搭建个人博客(主题：yilia)</title>
+      <link href="/2020/05/12/GitHub-hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+      <url>/2020/05/12/GitHub-hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
+      
+        <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>总结一下这一次的博客搭建吧，把所有步骤都写下来。</p><p>hexo是一个静态网页博客，很容易上手，在本地端部署后，再git到GitHub上，其余的域名什么的都不用搭理，这个比之前的wordprss容易多了，wordpress是动态博客，比较难。</p><a id="more"></a><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h2 id="1-安装Node-js和hexo框架"><a href="#1-安装Node-js和hexo框架" class="headerlink" title="1.安装Node.js和hexo框架"></a>1.安装Node.js和hexo框架</h2><p>在官网就可以下载，最好下载新版的。</p><p>打开终端命令行，我的是win10，用powershell，在vs code新建终端即可。</p><p>node -v #查看node版本</p><p>npm -v #查看npm版本</p><p>npm install -g cnpm –registry=<a href="http://registry.npm.taobao.org" target="_blank" rel="noopener">http://registry.npm.taobao.org</a> #安装淘宝的cnpm 管理器</p><p>cnpm -v #查看cnpm版本</p><p>ps:我没安装cnpm，安装这个一直不成功，直接用npm安装hexo也挺快的。</p><p>cnpm install -g hexo-cli #安装hexo框架</p><p>hexo -v #查看hexo版本</p><h2 id="2-创建博客"><a href="#2-创建博客" class="headerlink" title="2.创建博客"></a>2.创建博客</h2><p>mkdri blog #创建blog目录</p><p>cd blog #进入blog目录</p><p>hexo init #生成博客，初始化博客</p><p>hexo s #启动本地博客服务</p><p><a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> #本地访问地址</p><p>hexo n “我的第一篇文章” #创建新的文章</p><p>cd /.. #返回blog目录</p><p>hexo clean #清理</p><p>hexo g #生成</p><h2 id="3-构建GitHub仓库"><a href="#3-构建GitHub仓库" class="headerlink" title="3.构建GitHub仓库"></a>3.构建GitHub仓库</h2><p>在自己的GitHub账号中创建一个仓库YourGithubName.github.io</p><p>cnpm install –save hexo-deployer-git #在blog目录下安装git部署插件</p><p>#配置blog根目录下的_config.yaml文件</p><p>deploy:<br>  type: git<br>  repo: <a href="https://github.com/YourGithubName/YourGithubName.github.io.git" target="_blank" rel="noopener">https://github.com/YourGithubName/YourGithubName.github.io.git</a><br>  branch: master</p><p>hexo d #部署到Github仓库里</p><p><a href="https://YourGithubName.github.io/" target="_blank" rel="noopener">https://YourGithubName.github.io/</a> #访问这个地址可以查看博客</p><h2 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h2><p>返回blog目录</p><p>git clone <a href="https://github.com/litten/hexo-theme-yilia.git" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia #下载yilia主题到本地</p><p>#修改hexo根目录下的 _config.yml 文件 ： theme: yilia</p><p>hexo clean #清理</p><p>hexo g #生成</p><p>hexo d #部署到远端GitHub仓库</p><p><a href="https://YourGithubName.github.io/" target="_blank" rel="noopener">https://YourGithubName.github.io/</a> #查看博客</p><h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a href="https://www.bilibili.com/video/BV1Yb411a7ty" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Yb411a7ty</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 个人笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 建站 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2020/05/12/hello-world/"/>
       <url>/2020/05/12/hello-world/</url>
