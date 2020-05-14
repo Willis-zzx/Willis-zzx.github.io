@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>C语言初探—sizeof(数组名)与sizeof(*数组名)</title>
+      <link href="/posts/197e.html"/>
+      <url>/posts/197e.html</url>
+      
+        <content type="html"><![CDATA[<pre><code>#include&lt;stdio.h&gt;int main(){    int a[5]={1,2,3,4,5};    int len=(int)sizeof(a)/sizeof(*a);    printf(&quot;sizeof(数组名)=%d\n&quot;,sizeof(a));    printf(&quot;sizeof(*数组名)=%d\n&quot;,sizeof(*a));    printf(&quot;%d\n,len);    return 0;}</code></pre><p>运行结果：<br>sizeof(数组名)=20<br>sizeof(<em>数组名)=4<br>5<br>分析：<br>a为含有5个元素的数组，<br>数组名代表元素的首地址，所以sizeof(a)代表整个数组所占的内存空间，即5</em>4Byte=20Byte；<br><em>a表示指向首地址，即表示首地址的内容，所以sizeof(</em>a)表示首元素所占空间的大小。<br>(int)sizeof(a)/siezof(*a)表示的是数组a中所包含的元素个数。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 个人笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C语言 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>十大经典排序算法之冒泡排序</title>
       <link href="/posts/c3e4.html"/>
       <url>/posts/c3e4.html</url>
