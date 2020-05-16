@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="十大经典排序算法之快速排序, 徐定富">
+    <meta name="keywords" content="十大经典排序算法, 徐定富">
     <meta name="description" content="专注代码，更专注护发">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>十大经典排序算法之快速排序 | 徐定富</title>
+    <title>十大经典排序算法 | 徐定富</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">十大经典排序算法之快速排序</h1>
+                    <h1 class="description center-align post-title">十大经典排序算法</h1>
                 </div>
             </div>
         </div>
@@ -464,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    513
                 </div>
                 
 
@@ -476,331 +476,27 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在平均状况下，排序 n 个项目要 Ο(nlogn) 次比较。在最坏状况下则需要 Ο(n2) 次比较，但这种状况并不常见。事实上，快速排序通常明显比其他 Ο(nlogn) 算法更快，因为它的内部循环（inner loop）可以在大部分的架构上很有效率地被实现出来。<br>快速排序使用分治法（Divide and conquer）策略来把一个串行（list）分为两个子串行（sub-lists）。<br>快速排序又是一种分而治之思想在排序算法上的典型应用。本质上来看，快速排序应该算是在冒泡排序基础上的递归分治法。<br>快速排序快，而且效率高！它是处理大数据最快的排序算法之一了。虽然 Worst Case 的时间复杂度达到了 O(n²)，但在大多数情况下都比平均时间复杂度为 O(n logn) 的排序算法表现要更好<br>    快速排序的最坏运行情况是 O(n²)，比如说顺序数列的快排。但它的平摊期望时间是 O(nlogn)，且 O(nlogn) 记号中隐含的常数因子很小，比复杂度稳定等于 O(nlogn) 的归并排序要小很多。所以，对绝大多数顺序性较弱的随机数列而言，快速排序总是优于归并排序。《算法艺术与信息学竞赛》</p>
-<h2 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h2><p>1.从数列中挑出一个元素，称为“基准”（privot）<br>2.重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的可以任意一边）。在这个分区退出后，该基准就处于数列的中间位置。这个称为分区操作；<br>3.递归地把小于基准值元素地子数列和大于基准值元素的子数列排序；</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p><img src="img/quickSort.gif" alt=""></p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><pre><code>function quickSort(arr, left, right) {
-    var len = arr.length,
-        partitionIndex,
-        left = typeof left != &#39;number&#39; ? 0 : left,
-        right = typeof right != &#39;number&#39; ? len - 1 : right;
-
-    if (left &lt; right) {
-        partitionIndex = partition(arr, left, right);
-        quickSort(arr, left, partitionIndex-1);
-        quickSort(arr, partitionIndex+1, right);
-    }
-    return arr;
-}
-
-function partition(arr, left ,right) {     // 分区操作
-    var pivot = left,                      // 设定基准值（pivot）
-        index = pivot + 1;
-    for (var i = index; i &lt;= right; i++) {
-        if (arr[i] &lt; arr[pivot]) {
-            swap(arr, i, index);
-            index++;
-        }        
-    }
-    swap(arr, pivot, index - 1);
-    return index-1;
-}
-
-function swap(arr, i, j) {
-    var temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
-}
-function partition2(arr, low, high) {
-  let pivot = arr[low];
-  while (low &lt; high) {
-    while (low &lt; high &amp;&amp; arr[high] &gt; pivot) {
-      --high;
-    }
-    arr[low] = arr[high];
-    while (low &lt; high &amp;&amp; arr[low] &lt;= pivot) {
-      ++low;
-    }
-    arr[high] = arr[low];
-  }
-  arr[low] = pivot;
-  return low;
-}
-
-function quickSort2(arr, low, high) {
-  if (low &lt; high) {
-    let pivot = partition2(arr, low, high);
-    quickSort2(arr, low, pivot - 1);
-    quickSort2(arr, pivot + 1, high);
-  }
-  return arr;
-}</code></pre><h3 id="python"><a href="#python" class="headerlink" title="python"></a>python</h3><pre><code>def quickSort(arr, left=None, right=None):
-    left = 0 if not isinstance(left,(int, float)) else left
-    right = len(arr)-1 if not isinstance(right,(int, float)) else right
-    if left &lt; right:
-        partitionIndex = partition(arr, left, right)
-        quickSort(arr, left, partitionIndex-1)
-        quickSort(arr, partitionIndex+1, right)
-    return arr
-
-def partition(arr, left, right):
-    pivot = left
-    index = pivot+1
-    i = index
-    while  i &lt;= right:
-        if arr[i] &lt; arr[pivot]:
-            swap(arr, i, index)
-            index+=1
-        i+=1
-    swap(arr,pivot,index-1)
-    return index-1
-
-def swap(arr, i, j):
-    arr[i], arr[j] = arr[j], arr[i]</code></pre><h3 id="GO"><a href="#GO" class="headerlink" title="GO"></a>GO</h3><pre><code>func quickSort(arr []int) []int {
-        return _quickSort(arr, 0, len(arr)-1)
-}
-
-func _quickSort(arr []int, left, right int) []int {
-        if left &lt; right {
-                partitionIndex := partition(arr, left, right)
-                _quickSort(arr, left, partitionIndex-1)
-                _quickSort(arr, partitionIndex+1, right)
-        }
-        return arr
-}
-
-func partition(arr []int, left, right int) int {
-        pivot := left
-        index := pivot + 1
-
-        for i := index; i &lt;= right; i++ {
-                if arr[i] &lt; arr[pivot] {
-                        swap(arr, i, index)
-                        index += 1
-                }
-        }
-        swap(arr, pivot, index-1)
-        return index - 1
-}
-
-func swap(arr []int, i, j int) {
-        arr[i], arr[j] = arr[j], arr[i]
-}</code></pre><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><pre><code>//严蔚敏《数据结构》标准分割函数
- Paritition1(int A[], int low, int high) {
-   int pivot = A[low];
-   while (low &lt; high) {
-     while (low &lt; high &amp;&amp; A[high] &gt;= pivot) {
-       --high;
-     }
-     A[low] = A[high];
-     while (low &lt; high &amp;&amp; A[low] &lt;= pivot) {
-       ++low;
-     }
-     A[high] = A[low];
-   }
-   A[low] = pivot;
-   return low;
- }
-
- void QuickSort(int A[], int low, int high) //快排母函数
- {
-   if (low &lt; high) {
-     int pivot = Paritition1(A, low, high);
-     QuickSort(A, low, pivot - 1);
-     QuickSort(A, pivot + 1, high);
-   }
- }</code></pre><h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><pre><code>public class QuickSort implements IArraySort {
-
-    @Override
-    public int[] sort(int[] sourceArray) throws Exception {
-        // 对 arr 进行拷贝，不改变参数内容
-        int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
-
-        return quickSort(arr, 0, arr.length - 1);
-    }
-
-    private int[] quickSort(int[] arr, int left, int right) {
-        if (left &lt; right) {
-            int partitionIndex = partition(arr, left, right);
-            quickSort(arr, left, partitionIndex - 1);
-            quickSort(arr, partitionIndex + 1, right);
-        }
-        return arr;
-    }
-
-    private int partition(int[] arr, int left, int right) {
-        // 设定基准值（pivot）
-        int pivot = left;
-        int index = pivot + 1;
-        for (int i = index; i &lt;= right; i++) {
-            if (arr[i] &lt; arr[pivot]) {
-                swap(arr, i, index);
-                index++;
-            }
-        }
-        swap(arr, pivot, index - 1);
-        return index - 1;
-    }
-
-    private void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-
-}</code></pre><h3 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h3><pre><code>function quickSort($arr)
-{
-    if (count($arr) &lt;= 1)
-        return $arr;
-    $middle = $arr[0];
-    $leftArray = array();
-    $rightArray = array();
-
-    for ($i = 1; $i &lt; count($arr); $i++) {
-        if ($arr[$i] &gt; $middle)
-            $rightArray[] = $arr[$i];
-        else
-            $leftArray[] = $arr[$i];
-    }
-    $leftArray = quickSort($leftArray);
-    $leftArray[] = $middle;
-
-    $rightArray = quickSort($rightArray);
-    return array_merge($leftArray, $rightArray);
-}</code></pre><h3 id="C-1"><a href="#C-1" class="headerlink" title="C"></a>C</h3><pre><code>typedef struct _Range {
-    int start, end;
-} Range;
-
-Range new_Range(int s, int e) {
-    Range r;
-    r.start = s;
-    r.end = e;
-    return r;
-}
-
-void swap(int *x, int *y) {
-    int t = *x;
-    *x = *y;
-    *y = t;
-}
-
-void quick_sort(int arr[], const int len) {
-    if (len &lt;= 0)
-        return; // 避免len等於負值時引發段錯誤（Segment Fault）
-    // r[]模擬列表,p為數量,r[p++]為push,r[--p]為pop且取得元素
-    Range r[len];
-    int p = 0;
-    r[p++] = new_Range(0, len - 1);
-    while (p) {
-        Range range = r[--p];
-        if (range.start &gt;= range.end)
-            continue;
-        int mid = arr[(range.start + range.end) / 2]; // 選取中間點為基準點
-        int left = range.start, right = range.end;
-        do {
-            while (arr[left] &lt; mid) ++left;   // 檢測基準點左側是否符合要求
-            while (arr[right] &gt; mid) --right; //檢測基準點右側是否符合要求
-            if (left &lt;= right) {
-                swap(&amp;arr[left], &amp;arr[right]);
-                left++;
-                right--;               // 移動指針以繼續
-            }
-        } while (left &lt;= right);
-        if (range.start &lt; right) r[p++] = new_Range(range.start, right);
-        if (range.end &gt; left) r[p++] = new_Range(left, range.end);
-    }
-}</code></pre><p>递归版：</p>
-<pre><code>void swap(int *x, int *y) {
-    int t = *x;
-    *x = *y;
-    *y = t;
-}
-
-void quick_sort_recursive(int arr[], int start, int end) {
-    if (start &gt;= end)
-        return;
-    int mid = arr[end];
-    int left = start, right = end - 1;
-    while (left &lt; right) {
-        while (arr[left] &lt; mid &amp;&amp; left &lt; right)
-            left++;
-        while (arr[right] &gt;= mid &amp;&amp; left &lt; right)
-            right--;
-        swap(&amp;arr[left], &amp;arr[right]);
-    }
-    if (arr[left] &gt;= arr[end])
-        swap(&amp;arr[left], &amp;arr[end]);
-    else
-        left++;
-    if (left)
-        quick_sort_recursive(arr, start, left - 1);
-    quick_sort_recursive(arr, left + 1, end);
-}
-
-void quick_sort(int arr[], int len) {
-    quick_sort_recursive(arr, 0, len - 1);
-}</code></pre><h3 id="C-2"><a href="#C-2" class="headerlink" title="C++"></a>C++</h3><p>函数版：</p>
-<pre><code>sort(a,a + n);// 排序a[0]-a[n-1]的所有数.</code></pre><p>递归版：</p>
-<pre><code>template &lt;typename T&gt;
-void quick_sort_recursive(T arr[], int start, int end) {
-    if (start &gt;= end)
-        return;
-    T mid = arr[end];
-    int left = start, right = end - 1;
-    while (left &lt; right) { //在整个范围内搜寻比枢纽元值小或大的元素，然后将左侧元素与右侧元素交换
-        while (arr[left] &lt; mid &amp;&amp; left &lt; right) //试图在左侧找到一个比枢纽元更大的元素
-            left++;
-        while (arr[right] &gt;= mid &amp;&amp; left &lt; right) //试图在右侧找到一个比枢纽元更小的元素
-            right--;
-        std::swap(arr[left], arr[right]); //交换元素
-    }
-    if (arr[left] &gt;= arr[end])
-        std::swap(arr[left], arr[end]);
-    else
-        left++;
-    quick_sort_recursive(arr, start, left - 1);
-    quick_sort_recursive(arr, left + 1, end);
-}
-template &lt;typename T&gt; //整數或浮點數皆可使用,若要使用物件(class)時必須設定&quot;小於&quot;(&lt;)、&quot;大於&quot;(&gt;)、&quot;不小於&quot;(&gt;=)的運算子功能
-void quick_sort(T arr[], int len) {
-    quick_sort_recursive(arr, 0, len - 1);
-}</code></pre><p>迭代版：</p>
-<pre><code>// 参考：http://www.dutor.net/index.php/2011/04/recursive-iterative-quick-sort/
-struct Range {
-    int start, end;
-    Range(int s = 0, int e = 0) {
-        start = s, end = e;
-    }
-};
-template &lt;typename T&gt; // 整數或浮點數皆可使用,若要使用物件(class)時必須設定&quot;小於&quot;(&lt;)、&quot;大於&quot;(&gt;)、&quot;不小於&quot;(&gt;=)的運算子功能
-void quick_sort(T arr[], const int len) {
-    if (len &lt;= 0)
-        return; // 避免len等於負值時宣告堆疊陣列當機
-    // r[]模擬堆疊,p為數量,r[p++]為push,r[--p]為pop且取得元素
-    Range r[len];
-    int p = 0;
-    r[p++] = Range(0, len - 1);
-    while (p) {
-        Range range = r[--p];
-        if (range.start &gt;= range.end)
-            continue;
-        T mid = arr[range.end];
-        int left = range.start, right = range.end - 1;
-        while (left &lt; right) {
-            while (arr[left] &lt; mid &amp;&amp; left &lt; right) left++;
-            while (arr[right] &gt;= mid &amp;&amp; left &lt; right) right--;
-            std::swap(arr[left], arr[right]);
-        }
-        if (arr[left] &gt;= arr[range.end])
-            std::swap(arr[left], arr[range.end]);
-        else
-            left++;
-        r[p++] = Range(range.start, left - 1);
-        r[p++] = Range(left + 1, range.end);
-    }
-}</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://github.com/hustcc/JS-Sorting-Algorithm/blob/master/6.quickSort.md" target="_blank" rel="noopener">https://github.com/hustcc/JS-Sorting-Algorithm/blob/master/6.quickSort.md</a></p>
-<p><a href="https://zh.wikipedia.org/wiki/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F</a></p>
-<p><a href="https://www.runoob.com/w3cnote/quick-sort-2.html" target="_blank" rel="noopener">https://www.runoob.com/w3cnote/quick-sort-2.html</a></p>
+                <h2 id="叨叨"><a href="#叨叨" class="headerlink" title="叨叨"></a>叨叨</h2><p>数据结构与算法是程序员的基本功，无论学什么计算机语言，Java、PHP、或者是python等待，数据结构与算法都是必修课。只可惜，越是基本功的东西，越难学，就像高中的数学。<br>数据结构与算法分为数据结构和算法<br>    数据结构：数组、字符串、线性表、树、栈、堆、队列、图<br>    算法：排序、贪心、动态规划、回溯、分治、查找<br>这一篇笔记先整理下排序吧，光一个排序就有十个排序算法。越想越头秃。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>排序算法可以分为内部排序和外部排序，内部排序是数据记录在内存中进行排序，外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。<br>常见的内部排序算法有：冒泡排序、选择排序、插入排序、希尔排序、归并排序、快速排序、堆排序、计数排序、桶排序、基数排序。</p>
+<p><img src="img/sort.png" alt=""></p>
+<p><img src="img/0B319B38-B70E-4118-B897-74EFA7E368F9.png" alt=""></p>
+<h2 id="关于时间复杂度"><a href="#关于时间复杂度" class="headerlink" title="关于时间复杂度"></a>关于时间复杂度</h2><p>平方阶 (O(n2)) 排序 各类简单排序：直接插入、直接选择和冒泡排序。</p>
+<p>线性对数阶 (O(nlog2n)) 排序 ：快速排序、堆排序和归并排序；</p>
+<p>O(n1+§)) 排序，§ 是介于 0 和 1 之间的常数： 希尔排序</p>
+<p>线性阶 (O(n)) 排序 ：基数排序，桶、箱排序。</p>
+<h2 id="关于稳定性"><a href="#关于稳定性" class="headerlink" title="关于稳定性"></a>关于稳定性</h2><p>稳定的排序算法：冒泡排序、插入排序、归并排序和基数排序。</p>
+<p>不是稳定的排序算法：选择排序、快速排序、希尔排序、堆排序。</p>
+<p>n：数据规模<br>k：”桶”的个数<br>In-place：占用常数内存，不占用额外内存<br>Out-place：占用额外内存<br>稳定性：排序后 2 个相等键值的顺序和排序之前它们的顺序相同</p>
+<h2 id="链接直达："><a href="#链接直达：" class="headerlink" title="链接直达："></a>链接直达：</h2><p><a href="https://williscode.gitee.io/posts/c3e4.html">冒泡排序</a></p>
+<p><a href="https://williscode.gitee.io/posts/5911.html">选择排序</a></p>
+<p><a href="https://williscode.gitee.io/posts/551c.html">插入排序</a></p>
+<p><a href="https://williscode.gitee.io/posts/75c9.html">希尔排序</a></p>
+<p><a href="https://williscode.gitee.io/posts/69cd.html">归并排序</a></p>
+<p><a href="https://williscode.gitee.io/posts/bd38.html">快速排序</a></p>
+<p><a href="https://williscode.gitee.io/posts/b66a.html">堆排序</a></p>
+<p><a href="https://williscode.gitee.io/posts/73fb.html">计数排序</a></p>
+<p><a href="https://williscode.gitee.io/posts/4c8b.html">桶排序</a></p>
+<p><a href="https://williscode.gitee.io/posts/2c9d.html">基数排序</a></p>
 
             </div>
             <hr/>
@@ -826,7 +522,7 @@ void quick_sort(T arr[], const int len) {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://williscode.gitee.io/posts/bd38.html">https://williscode.gitee.io/posts/bd38.html</a>
+                    <a href="https://williscode.gitee.io/posts/e803.html">https://williscode.gitee.io/posts/e803.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1033,29 +729,30 @@ void quick_sort(T arr[], const int len) {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/b66a.html">
+                <a href="/posts/e803.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="堆排序">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="十大经典排序算法">
                         
-                        <span class="card-title">堆排序</span>
+                        <span class="card-title">十大经典排序算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            概述堆排序（Heapsort）是指利用堆这种数据结构所设计的一种排序算法。堆积是一个近似完全二叉树的结构，并同时满足堆积的性质：即子结点的键值或索引总是小于（或者大于）它的父节点。堆排序可以说是一种利用堆的概念来排序的选择排序。分为两种方法
+                            叨叨数据结构与算法是程序员的基本功，无论学什么计算机语言，Java、PHP、或者是python等待，数据结构与算法都是必修课。只可惜，越是基本功的东西，越难学，就像高中的数学。数据结构与算法分为数据结构和算法    数据结构：数组、字符串、
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1068,6 +765,7 @@ void quick_sort(T arr[], const int len) {
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1086,19 +784,20 @@ void quick_sort(T arr[], const int len) {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/69cd.html">
+                <a href="/posts/2c9d.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="十大经典排序算法之归并排序">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="十大经典排序算法之基数排序">
                         
-                        <span class="card-title">十大经典排序算法之归并排序</span>
+                        <span class="card-title">十大经典排序算法之基数排序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            概述归并排序是建立在归并操作上的一种有效的排序算法。该算法是采用分治法。作为一种典型的分而治之的算法，归并排序的实现有两种方法：    自上而下的递归（由于所有的递归方法都可以用迭代重写，所以还有第二种方法）    自下而上的迭代；PS：递
+                            概述基数排序是一种非比较型整数排序算法，其原理是将整数按位数切割成不同的数字，然后按每个位数分别比较。由于整数也可以表达字符串（比如名字或日期）和特定格式的浮点数，所以基数排序也不是只能使用于整数。
+基数排序 vs 计数排序 vs 桶排序基
                         
                     </div>
                     <div class="publish-info">
