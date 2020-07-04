@@ -385,7 +385,7 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(/medias/banner/1.jpg)');
+    $('.bg-cover').css('background-image', 'url(/medias/banner/6.jpg)');
 </script>
 
 
@@ -472,7 +472,7 @@
         }
 
         coverSlider.carousel({
-            duration: Number('120'),
+            duration: Number('80'),
             fullWidth: true,
             indicators: 'true' === 'true',
             onCycleTo() {
@@ -490,7 +490,7 @@
         let autoCarousel = function () {
             carouselIntervalId = setInterval(function () {
                 coverSlider.carousel('next');
-            }, 5000);
+            }, 4000);
         };
         autoCarousel();
         
@@ -534,7 +534,7 @@
     
     <div class="row">
         <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
-            不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。——罗伯·舒乐
+            受了教训 得到书经的指引 现已看得透不再自困 但觉有分数 不再像以往那般笨 抹泪痕轻快笑着行
         </div>
     </div>
 </div>
@@ -560,32 +560,6 @@
     
     
     <div class="col s12 m6" >
-        <div class="post-card" style="background-image: url('/medias/featureimages/0.jpg')">
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                        
-                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/" class="category">个人笔记</a>
-                        
-                    
-                </div>
-                <a href="/posts/a429.html">
-                    <h3 class="post-title">Java多线程和并发编程</h3>
-                </a>
-                <p class="post-description">
-                    
-                        1.多进程1.1多进程概念1.当前的操作系统都是多任务OS（OS是操作系统的简称）2.每个独立执行的任务就是一个进程3.OS将时间划分为多个
-                    
-                </p>
-                <a href="/posts/a429.html" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)" target="_blank">
-                    <i class="icon far fa-eye fa-fw"></i>阅读更多
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col s12 m6" >
         <div class="post-card" style="background-image: url('/medias/featureimages/14.jpg')">
             <div class="post-body">
                 <div class="post-categories">
@@ -603,7 +577,33 @@
                         叨叨数据结构与算法是程序员的基本功，无论学什么计算机语言，Java、PHP、或者是python等待，数据结构与算法都是必修课。只可惜，越是基
                     
                 </p>
-                <a href="/posts/e803.html" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)" target="_blank">
+                <a href="/posts/e803.html" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)" target="_blank">
+                    <i class="icon far fa-eye fa-fw"></i>阅读更多
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="col s12 m6" >
+        <div class="post-card" style="background-image: url('/medias/featureimages/0.jpg')">
+            <div class="post-body">
+                <div class="post-categories">
+                    
+                        
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/" class="category">个人笔记</a>
+                        
+                    
+                </div>
+                <a href="/posts/a429.html">
+                    <h3 class="post-title">Java多线程和并发编程</h3>
+                </a>
+                <p class="post-description">
+                    
+                        1.多进程1.1多进程概念1.当前的操作系统都是多任务OS（OS是操作系统的简称）2.每个独立执行的任务就是一个进程3.OS将时间划分为多个
+                    
+                </p>
+                <a href="/posts/a429.html" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)" target="_blank">
                     <i class="icon far fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
@@ -1170,9 +1170,9 @@
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
                    type="playlist"
-                   id="503838841"
+                   id="171269"
                    fixed='true'
-                   autoplay='false'
+                   autoplay='true'
                    theme='#42b983'
                    loop='all'
                    order='random'
