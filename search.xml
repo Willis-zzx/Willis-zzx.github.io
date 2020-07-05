@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Git常用命令</title>
+      <link href="/posts/1b99.html"/>
+      <url>/posts/1b99.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="创建仓库-初始化-提交操作"><a href="#创建仓库-初始化-提交操作" class="headerlink" title="创建仓库/初始化/提交操作"></a>创建仓库/初始化/提交操作</h2><h3 id="1、初始化仓库操作，这样才可以用git进行代码管理"><a href="#1、初始化仓库操作，这样才可以用git进行代码管理" class="headerlink" title="1、初始化仓库操作，这样才可以用git进行代码管理"></a>1、初始化仓库操作，这样才可以用git进行代码管理</h3><p><code>git init</code></p><h3 id="2、git-clone仓库地址"><a href="#2、git-clone仓库地址" class="headerlink" title="2、git clone仓库地址"></a>2、git clone仓库地址</h3><p>复制远程仓库的代码到本地。</p><p><code>git clone + &quot;仓库地址&quot;</code></p><h3 id="3、git-add-XXX"><a href="#3、git-add-XXX" class="headerlink" title="3、git add XXX"></a>3、git add XXX</h3><p>添加本地的某一个新文件到本地仓库，此时只是提交到本地仓库，并没有提交到远程仓库。</p><h3 id="4、git-add"><a href="#4、git-add" class="headerlink" title="4、git add"></a>4、git add</h3><p>这个命令和上面的区别在于，这个命令会添加所有的新文件，也就是当前目录下的所有新文件。</p><h3 id="5、git-commit-m-‘message’"><a href="#5、git-commit-m-‘message’" class="headerlink" title="5、git commit -m ‘message’"></a>5、git commit -m ‘message’</h3><p>提交代码到本地仓库，并没有到远程仓库。</p><h3 id="6、git-commit-am-‘message’"><a href="#6、git-commit-am-‘message’" class="headerlink" title="6、git commit -am ‘message’"></a>6、git commit -am ‘message’</h3><p>这个命令将第四、五条命令的步骤add和commit合二为一。</p><h2 id="日志查看-信息显示"><a href="#日志查看-信息显示" class="headerlink" title="日志查看/信息显示"></a>日志查看/信息显示</h2><h3 id="1、git-log"><a href="#1、git-log" class="headerlink" title="1、git log"></a>1、git log</h3><p>主要用于查看提交日志。</p><h3 id="2、git-status"><a href="#2、git-status" class="headerlink" title="2、git status"></a>2、git status</h3><p>可以用来查看仓库的状态。</p><h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><h3 id="1、创建分支-git-branch-XXX"><a href="#1、创建分支-git-branch-XXX" class="headerlink" title="1、创建分支 git branch XXX"></a>1、创建分支 git branch XXX</h3><p>可以再远程界面创建分支，或者使用命令git branch xxx</p><p>也可以用git branch 查看分支</p><h3 id="2、切换分支-git-checkout-XXX"><a href="#2、切换分支-git-checkout-XXX" class="headerlink" title="2、切换分支 git checkout XXX"></a>2、切换分支 git checkout XXX</h3><p>切还分支：git checkout xxx，这样就切换到XXX分支了，接着可以到XXX分支进行功能开发工作</p><h3 id="3、创建分支并且切换分支-git-checkout-b-XXX"><a href="#3、创建分支并且切换分支-git-checkout-b-XXX" class="headerlink" title="3、创建分支并且切换分支 git checkout -b XXX"></a>3、创建分支并且切换分支 git checkout -b XXX</h3><p>git checkout -b xxx是同时执行了命令1和2：git branch xxx和git checkout xxx，创建并且直接切换到xx分支</p><h3 id="4、查看处于哪个分支git-branch"><a href="#4、查看处于哪个分支git-branch" class="headerlink" title="4、查看处于哪个分支git branch"></a>4、查看处于哪个分支git branch</h3><p>命令：git branch 可以直接查看本地的所有分支，并且当前处于哪个分支</p><h3 id="5、查看本地和远程所有分支-git-branch-a"><a href="#5、查看本地和远程所有分支-git-branch-a" class="headerlink" title="5、查看本地和远程所有分支 git branch -a"></a>5、查看本地和远程所有分支 git branch -a</h3><p>git branch -a</p><h3 id="6、合并分支git-merge"><a href="#6、合并分支git-merge" class="headerlink" title="6、合并分支git merge"></a>6、合并分支git merge</h3><p>切换到master分支：git checkout master</p><p>合并xxx分支：git merge xxx</p><h3 id="7、删除本地分支-git-branch-D-xxx"><a href="#7、删除本地分支-git-branch-D-xxx" class="headerlink" title="7、删除本地分支 git branch -D xxx"></a>7、删除本地分支 git branch -D xxx</h3><p>当完成功能开发后，并且合并到了master的时候，可以删除我们当前的分支，使用命令：git branch -D XXX</p><p>PS:若当前处于XXX分支，XXX分支是不能被删除的，需要先切换到其他的分支。</p><h3 id="8、删除远程分支-git-push-origin-–delete-XXX"><a href="#8、删除远程分支-git-push-origin-–delete-XXX" class="headerlink" title="8、删除远程分支 git push origin –delete XXX"></a>8、删除远程分支 git push origin –delete XXX</h3><p>删除远程分支属于危险操作，如果权限不合理，可能会出现大问题。</p><p>建议：git branch -a 查看所有分支，再进行操作。</p><h2 id="更新管理"><a href="#更新管理" class="headerlink" title="更新管理"></a>更新管理</h2><h3 id="1、提交代码到远程-git-push-origin-xxx"><a href="#1、提交代码到远程-git-push-origin-xxx" class="headerlink" title="1、提交代码到远程 git push origin xxx"></a>1、提交代码到远程 git push origin xxx</h3><p>本地代码写完后，提交到远程，最常用的操作，xxx是远程仓库的名称</p><p>最常用：git push origin master 添加到master。</p><h3 id="2、拉取远程代码到本地-git-pull-origin-xxx"><a href="#2、拉取远程代码到本地-git-pull-origin-xxx" class="headerlink" title="2、拉取远程代码到本地 git pull origin xxx"></a>2、拉取远程代码到本地 git pull origin xxx</h3><p>将远程代码下拉到本地并进行合并，等价于fetch和merge两步一起执行</p><h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><h3 id="1、git-reset-–hard-xxx"><a href="#1、git-reset-–hard-xxx" class="headerlink" title="1、git reset –hard xxx"></a>1、git reset –hard xxx</h3><p>这个命令使用时需注意，会把当前分支的代码全部回退到以前的一个版本，不可逆转，使用需谨慎！</p><p>可以使用git reflog，查看所有的head的记录</p><p>参考连接：<a href="https://blog.csdn.net/YJG7D314/article/details/104551896" target="_blank" rel="noopener">git使用教程</a></p><p>​                    <a href="https://blog.csdn.net/qq_38111015/article/details/84885809" target="_blank" rel="noopener">git常用命令大全</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 个人笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java多线程和并发编程</title>
       <link href="/posts/a429.html"/>
       <url>/posts/a429.html</url>
