@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Git常用命令, 徐定富">
+    <meta name="keywords" content="Java hashCode()和equals()的若干问题, 徐定富">
     <meta name="description" content="专注代码，更专注护发">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Git常用命令 | 徐定富</title>
+    <title>Java hashCode()和equals()的若干问题 | 徐定富</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Git常用命令</h1>
+                    <h1 class="description center-align post-title">Java hashCode()和equals()的若干问题</h1>
                 </div>
             </div>
         </div>
@@ -430,8 +430,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Git/">
-                                <span class="chip bg-color">Git</span>
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
                     </div>
@@ -455,7 +455,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-05
+                    2020-07-12
                 </div>
                 
 
@@ -464,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    738
+                    1.3k
                 </div>
                 
 
@@ -476,34 +476,64 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="创建仓库-初始化-提交操作"><a href="#创建仓库-初始化-提交操作" class="headerlink" title="创建仓库/初始化/提交操作"></a>创建仓库/初始化/提交操作</h2><h3 id="1、初始化仓库操作，这样才可以用git进行代码管理"><a href="#1、初始化仓库操作，这样才可以用git进行代码管理" class="headerlink" title="1、初始化仓库操作，这样才可以用git进行代码管理"></a>1、初始化仓库操作，这样才可以用git进行代码管理</h3><p><code>git init</code></p>
-<h3 id="2、git-clone仓库地址"><a href="#2、git-clone仓库地址" class="headerlink" title="2、git clone仓库地址"></a>2、git clone仓库地址</h3><p>复制远程仓库的代码到本地。</p>
-<p><code>git clone + &quot;仓库地址&quot;</code></p>
-<h3 id="3、git-add-XXX"><a href="#3、git-add-XXX" class="headerlink" title="3、git add XXX"></a>3、git add XXX</h3><p>添加本地的某一个新文件到本地仓库，此时只是提交到本地仓库，并没有提交到远程仓库。</p>
-<h3 id="4、git-add"><a href="#4、git-add" class="headerlink" title="4、git add"></a>4、git add</h3><p>这个命令和上面的区别在于，这个命令会添加所有的新文件，也就是当前目录下的所有新文件。</p>
-<h3 id="5、git-commit-m-‘message’"><a href="#5、git-commit-m-‘message’" class="headerlink" title="5、git commit -m ‘message’"></a>5、git commit -m ‘message’</h3><p>提交代码到本地仓库，并没有到远程仓库。</p>
-<h3 id="6、git-commit-am-‘message’"><a href="#6、git-commit-am-‘message’" class="headerlink" title="6、git commit -am ‘message’"></a>6、git commit -am ‘message’</h3><p>这个命令将第四、五条命令的步骤add和commit合二为一。</p>
-<h2 id="日志查看-信息显示"><a href="#日志查看-信息显示" class="headerlink" title="日志查看/信息显示"></a>日志查看/信息显示</h2><h3 id="1、git-log"><a href="#1、git-log" class="headerlink" title="1、git log"></a>1、git log</h3><p>主要用于查看提交日志。</p>
-<h3 id="2、git-status"><a href="#2、git-status" class="headerlink" title="2、git status"></a>2、git status</h3><p>可以用来查看仓库的状态。</p>
-<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><h3 id="1、创建分支-git-branch-XXX"><a href="#1、创建分支-git-branch-XXX" class="headerlink" title="1、创建分支 git branch XXX"></a>1、创建分支 git branch XXX</h3><p>可以再远程界面创建分支，或者使用命令git branch xxx</p>
-<p>也可以用git branch 查看分支</p>
-<h3 id="2、切换分支-git-checkout-XXX"><a href="#2、切换分支-git-checkout-XXX" class="headerlink" title="2、切换分支 git checkout XXX"></a>2、切换分支 git checkout XXX</h3><p>切还分支：git checkout xxx，这样就切换到XXX分支了，接着可以到XXX分支进行功能开发工作</p>
-<h3 id="3、创建分支并且切换分支-git-checkout-b-XXX"><a href="#3、创建分支并且切换分支-git-checkout-b-XXX" class="headerlink" title="3、创建分支并且切换分支 git checkout -b XXX"></a>3、创建分支并且切换分支 git checkout -b XXX</h3><p>git checkout -b xxx是同时执行了命令1和2：git branch xxx和git checkout xxx，创建并且直接切换到xx分支</p>
-<h3 id="4、查看处于哪个分支git-branch"><a href="#4、查看处于哪个分支git-branch" class="headerlink" title="4、查看处于哪个分支git branch"></a>4、查看处于哪个分支git branch</h3><p>命令：git branch 可以直接查看本地的所有分支，并且当前处于哪个分支</p>
-<h3 id="5、查看本地和远程所有分支-git-branch-a"><a href="#5、查看本地和远程所有分支-git-branch-a" class="headerlink" title="5、查看本地和远程所有分支 git branch -a"></a>5、查看本地和远程所有分支 git branch -a</h3><p>git branch -a</p>
-<h3 id="6、合并分支git-merge"><a href="#6、合并分支git-merge" class="headerlink" title="6、合并分支git merge"></a>6、合并分支git merge</h3><p>切换到master分支：git checkout master</p>
-<p>合并xxx分支：git merge xxx</p>
-<h3 id="7、删除本地分支-git-branch-D-xxx"><a href="#7、删除本地分支-git-branch-D-xxx" class="headerlink" title="7、删除本地分支 git branch -D xxx"></a>7、删除本地分支 git branch -D xxx</h3><p>当完成功能开发后，并且合并到了master的时候，可以删除我们当前的分支，使用命令：git branch -D XXX</p>
-<p>PS:若当前处于XXX分支，XXX分支是不能被删除的，需要先切换到其他的分支。</p>
-<h3 id="8、删除远程分支-git-push-origin-–delete-XXX"><a href="#8、删除远程分支-git-push-origin-–delete-XXX" class="headerlink" title="8、删除远程分支 git push origin –delete XXX"></a>8、删除远程分支 git push origin –delete XXX</h3><p>删除远程分支属于危险操作，如果权限不合理，可能会出现大问题。</p>
-<p>建议：git branch -a 查看所有分支，再进行操作。</p>
-<h2 id="更新管理"><a href="#更新管理" class="headerlink" title="更新管理"></a>更新管理</h2><h3 id="1、提交代码到远程-git-push-origin-xxx"><a href="#1、提交代码到远程-git-push-origin-xxx" class="headerlink" title="1、提交代码到远程 git push origin xxx"></a>1、提交代码到远程 git push origin xxx</h3><p>本地代码写完后，提交到远程，最常用的操作，xxx是远程仓库的名称</p>
-<p>最常用：git push origin master 添加到master。</p>
-<h3 id="2、拉取远程代码到本地-git-pull-origin-xxx"><a href="#2、拉取远程代码到本地-git-pull-origin-xxx" class="headerlink" title="2、拉取远程代码到本地 git pull origin xxx"></a>2、拉取远程代码到本地 git pull origin xxx</h3><p>将远程代码下拉到本地并进行合并，等价于fetch和merge两步一起执行</p>
-<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><h3 id="1、git-reset-–hard-xxx"><a href="#1、git-reset-–hard-xxx" class="headerlink" title="1、git reset –hard xxx"></a>1、git reset –hard xxx</h3><p>这个命令使用时需注意，会把当前分支的代码全部回退到以前的一个版本，不可逆转，使用需谨慎！</p>
-<p>可以使用git reflog，查看所有的head的记录</p>
-<p>参考连接：<a href="https://blog.csdn.net/YJG7D314/article/details/104551896" target="_blank" rel="noopener">git使用教程</a></p>
-<p>​                    <a href="https://blog.csdn.net/qq_38111015/article/details/84885809" target="_blank" rel="noopener">git常用命令大全</a></p>
+                <h1 id="本文章的内容主要解决以下几个问题："><a href="#本文章的内容主要解决以下几个问题：" class="headerlink" title="本文章的内容主要解决以下几个问题："></a>本文章的内容主要解决以下几个问题：</h1><ol>
+<li>equals()的作用是什么？</li>
+<li>equals()与==的区别是什么</li>
+<li>hashCode()的作用是什么</li>
+<li>hashCode()和equals()之间有什么联系</li>
+</ol>
+<h1 id="第一部分equals-的作用"><a href="#第一部分equals-的作用" class="headerlink" title="第一部分equals()的作用"></a>第一部分equals()的作用</h1><p>equals()的作用是判断两个对象是否相等</p>
+<p>equals()定义在JDK的Object.java中。</p>
+<p>通过判断两个对象的地址是否相等（即：是否为同一个对象）来区分他们是否相等。</p>
+<p>源码如下：</p>
+<p><code>public bollean equals(Obejct obj){</code></p>
+<p><code>return (this == object;)</code></p>
+<p><code>}</code></p>
+<p>因为Object类是所有类的父类，所以既然Obejct.javva中定义了equals()方法，这就意味着所有的Java类都实现了equals()方法，所有的类都可以直接通过equals()方法去比较两个对象是否相等。但是，如果使用默认的equals()方法，等价于“==”方法。因此，通常会重写equals()方法：若两个对象的内容相等，则equals()方法返回true；否则返回false。</p>
+<p>根据“类是否覆盖equals()方法”，将其分为两类：</p>
+<ol>
+<li>若某个类没有覆盖equals()方法，当他通过equals()来比较两个对象时，实际上是比较两个对象是否为同一个对象。这个时候，equals()的作用等价于“==”。</li>
+</ol>
+<ol start="2">
+<li>可以通过覆盖类的equals()方法，让equals()通过其它方式来比较两个对象是否相等。通常的做法是：若两个对象的内容相等，则equals()方法返回true，否则返回false。</li>
+</ol>
+<p>总结：没有覆盖，比较的是内存地址是否相等，有覆盖，比较的是内容是否相等。</p>
+<p>Java对equals()的要求有如下几点：</p>
+<ol>
+<li><p>对称性：如果x.equals(y)返回是”true”，那么y.equals(x)也应该返回是”true”。</p>
+</li>
+<li><p>反射性：x.equals(x)必须返回是”true”。</p>
+</li>
+<li><p>类推性：如果x.equals(y)返回是”true”，而且y.equals(z)返回是”true”，那么z.equals(x)也应该返回是”true”。</p>
+</li>
+<li><p>一致性：如果x.equals(y)返回是”true”，只要x和y内容一直不变，不管你重复x.equals(y)多少次，返回都是”true”。</p>
+</li>
+<li><p>非空性，x.equals(null)，永远返回是”false”；x.equals(和x不同类型的对象)永远返回是”false”。</p>
+</li>
+</ol>
+<h1 id="第二部分equals-与-的区别是什么"><a href="#第二部分equals-与-的区别是什么" class="headerlink" title="第二部分equals()与==的区别是什么"></a>第二部分equals()与==的区别是什么</h1><p>== ：作用是判断两个对象的地址是否相等，即判断两个对象是不是同一个对象。</p>
+<p>equals()：作用也是判断两个对象是否相等，但是要分情况，有两种情况：</p>
+<p>​        情况1：类没有覆盖equals()方法。则通过equals()比较该类的两个对象时，等价于通过“==”比较这两个对象。</p>
+<p>​        情况2：类覆盖了equals()方法。一般，我们都覆盖equals()方法来两个对象的内容相等；若它们的内容相等，则返回true(即，认为这两个对象相等)。</p>
+<h1 id="第三部分-hashCode-的作用"><a href="#第三部分-hashCode-的作用" class="headerlink" title="第三部分 hashCode()的作用"></a>第三部分 hashCode()的作用</h1><p>hashCode()的作用是获取哈希码，也称为散列码。它实际上是返回一个int整数。这个哈希码的作用是确定该对象在哈希表中的索引位置。</p>
+<p>hashCode() 定义在JDK的Object.java中，这就意味着Java中的任何类都包含有hashCode() 函数。</p>
+<p>虽然每一个Java类都包含hashCode()函数，但是，仅仅当创建某个“类的散列表”时，该类的hashCode()才有作用（作用是：确定该类的每一对象在散列表中的位置），其他情况下（如：创建类的单个对象，或者创建类的对象数组等），类的hashCode()是没有作用的。</p>
+<p>散列表：Java集合中本质是散列表的类，如：HashMap、Hashtable、HashSet</p>
+<p>总结：hashCode()在散列表才有用，在其他的地方毫无用武之地。在散列表中，其作用是获取对象的散列码，进而确定该对象在散列表中的位置。</p>
+<h1 id="第四部分-hashCode-和equals-的关系"><a href="#第四部分-hashCode-和equals-的关系" class="headerlink" title="第四部分 hashCode()和equals()的关系"></a>第四部分 hashCode()和equals()的关系</h1><ol>
+<li><p>第一种 不会创建“类对应的散列表”</p>
+<p>“不会创建类对应的散列表“指的是：不会在HashSet、Hashtable、HashMap等等本质是散列表的数据结构中用到该类。例如：不会创建该类的HashMap集合。</p>
+<p>在这种情况下，该类的”hashCode()和equals()“是没有关系的，equals()用来比较该类的两个对象是否相等，而hashCode()没有任何作用。</p>
+</li>
+<li><p>第二种 会创建“类对应的散列表”</p>
+<p>”会创建类对应的散列表“指的是：会在HashSet、Hashtable、HashMap等等本质是散列表的数据结构中用到该类。例如：会创建该类的HashMap集合</p>
+<p>在这种情况下，该类的”hasnCode()和equals()“是有关系的：</p>
+<ul>
+<li>如果两个对象相等，那么他们的hashCode()值一定相同。这里的相等指的是：通过equals()比较两个对象时返回true。</li>
+<li>如果两个对象hashCode()相等，它们并不一定相等。在散列表中，hashCode()相等，即两个键值对的哈希值相等，但是哈希值相等，并不一定能够得出键值对相等。（两个不同的键值对，哈希值相等，这是哈希冲突）<br>此外，在这种情况下。若要判断两个对象是否相等，除了要覆盖equals()之外，也要覆盖hashCode()函数。否则，equals()无效。</li>
+</ul>
+</li>
+</ol>
 
             </div>
             <hr/>
@@ -529,7 +559,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://williscode.gitee.io/posts/1b99.html">https://williscode.gitee.io/posts/1b99.html</a>
+                    <a href="https://williscode.gitee.io/posts/c465.html">https://williscode.gitee.io/posts/c465.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -567,8 +597,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Git/">
-                                    <span class="chip bg-color">Git</span>
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
                         </div>
@@ -736,9 +766,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/posts/c465.html">
                     <div class="card-image">
@@ -762,9 +793,9 @@ hashCode()和equals()之间有什么联系
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -777,6 +808,7 @@ hashCode()和equals()之间有什么联系
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -795,24 +827,27 @@ hashCode()和equals()之间有什么联系
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/a429.html">
+                <a href="/posts/1b99.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Java多线程和并发编程">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Git常用命令">
                         
-                        <span class="card-title">Java多线程和并发编程</span>
+                        <span class="card-title">Git常用命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1.多进程1.1多进程概念1.当前的操作系统都是多任务OS（OS是操作系统的简称）2.每个独立执行的任务就是一个进程3.OS将时间划分为多个时间片（时间很短）4.每个时间片内将CPU分配某一个任务，时间片结束，CPU将自动回收，再分配给其他
+                            创建仓库/初始化/提交操作1、初始化仓库操作，这样才可以用git进行代码管理git init
+2、git clone仓库地址复制远程仓库的代码到本地。
+git clone + &quot;仓库地址&quot;
+3、git add XXX添加
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-05
                             </span>
                         <span class="publish-author">
                             
@@ -829,8 +864,8 @@ hashCode()和equals()之间有什么联系
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/Git/">
+                        <span class="chip bg-color">Git</span>
                     </a>
                     
                 </div>

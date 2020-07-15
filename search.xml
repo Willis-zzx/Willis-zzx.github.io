@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Java hashCode()和equals()的若干问题</title>
+      <link href="/posts/c465.html"/>
+      <url>/posts/c465.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="本文章的内容主要解决以下几个问题："><a href="#本文章的内容主要解决以下几个问题：" class="headerlink" title="本文章的内容主要解决以下几个问题："></a>本文章的内容主要解决以下几个问题：</h1><ol><li>equals()的作用是什么？</li><li>equals()与==的区别是什么</li><li>hashCode()的作用是什么</li><li>hashCode()和equals()之间有什么联系</li></ol><h1 id="第一部分equals-的作用"><a href="#第一部分equals-的作用" class="headerlink" title="第一部分equals()的作用"></a>第一部分equals()的作用</h1><p>equals()的作用是判断两个对象是否相等</p><p>equals()定义在JDK的Object.java中。</p><p>通过判断两个对象的地址是否相等（即：是否为同一个对象）来区分他们是否相等。</p><p>源码如下：</p><p><code>public bollean equals(Obejct obj){</code></p><p><code>return (this == object;)</code></p><p><code>}</code></p><p>因为Object类是所有类的父类，所以既然Obejct.javva中定义了equals()方法，这就意味着所有的Java类都实现了equals()方法，所有的类都可以直接通过equals()方法去比较两个对象是否相等。但是，如果使用默认的equals()方法，等价于“==”方法。因此，通常会重写equals()方法：若两个对象的内容相等，则equals()方法返回true；否则返回false。</p><p>根据“类是否覆盖equals()方法”，将其分为两类：</p><ol><li>若某个类没有覆盖equals()方法，当他通过equals()来比较两个对象时，实际上是比较两个对象是否为同一个对象。这个时候，equals()的作用等价于“==”。</li></ol><ol start="2"><li>可以通过覆盖类的equals()方法，让equals()通过其它方式来比较两个对象是否相等。通常的做法是：若两个对象的内容相等，则equals()方法返回true，否则返回false。</li></ol><p>总结：没有覆盖，比较的是内存地址是否相等，有覆盖，比较的是内容是否相等。</p><p>Java对equals()的要求有如下几点：</p><ol><li><p>对称性：如果x.equals(y)返回是”true”，那么y.equals(x)也应该返回是”true”。</p></li><li><p>反射性：x.equals(x)必须返回是”true”。</p></li><li><p>类推性：如果x.equals(y)返回是”true”，而且y.equals(z)返回是”true”，那么z.equals(x)也应该返回是”true”。</p></li><li><p>一致性：如果x.equals(y)返回是”true”，只要x和y内容一直不变，不管你重复x.equals(y)多少次，返回都是”true”。</p></li><li><p>非空性，x.equals(null)，永远返回是”false”；x.equals(和x不同类型的对象)永远返回是”false”。</p></li></ol><h1 id="第二部分equals-与-的区别是什么"><a href="#第二部分equals-与-的区别是什么" class="headerlink" title="第二部分equals()与==的区别是什么"></a>第二部分equals()与==的区别是什么</h1><p>== ：作用是判断两个对象的地址是否相等，即判断两个对象是不是同一个对象。</p><p>equals()：作用也是判断两个对象是否相等，但是要分情况，有两种情况：</p><p>​        情况1：类没有覆盖equals()方法。则通过equals()比较该类的两个对象时，等价于通过“==”比较这两个对象。</p><p>​        情况2：类覆盖了equals()方法。一般，我们都覆盖equals()方法来两个对象的内容相等；若它们的内容相等，则返回true(即，认为这两个对象相等)。</p><h1 id="第三部分-hashCode-的作用"><a href="#第三部分-hashCode-的作用" class="headerlink" title="第三部分 hashCode()的作用"></a>第三部分 hashCode()的作用</h1><p>hashCode()的作用是获取哈希码，也称为散列码。它实际上是返回一个int整数。这个哈希码的作用是确定该对象在哈希表中的索引位置。</p><p>hashCode() 定义在JDK的Object.java中，这就意味着Java中的任何类都包含有hashCode() 函数。</p><p>虽然每一个Java类都包含hashCode()函数，但是，仅仅当创建某个“类的散列表”时，该类的hashCode()才有作用（作用是：确定该类的每一对象在散列表中的位置），其他情况下（如：创建类的单个对象，或者创建类的对象数组等），类的hashCode()是没有作用的。</p><p>散列表：Java集合中本质是散列表的类，如：HashMap、Hashtable、HashSet</p><p>总结：hashCode()在散列表才有用，在其他的地方毫无用武之地。在散列表中，其作用是获取对象的散列码，进而确定该对象在散列表中的位置。</p><h1 id="第四部分-hashCode-和equals-的关系"><a href="#第四部分-hashCode-和equals-的关系" class="headerlink" title="第四部分 hashCode()和equals()的关系"></a>第四部分 hashCode()和equals()的关系</h1><ol><li><p>第一种 不会创建“类对应的散列表”</p><p>“不会创建类对应的散列表“指的是：不会在HashSet、Hashtable、HashMap等等本质是散列表的数据结构中用到该类。例如：不会创建该类的HashMap集合。</p><p>在这种情况下，该类的”hashCode()和equals()“是没有关系的，equals()用来比较该类的两个对象是否相等，而hashCode()没有任何作用。</p></li><li><p>第二种 会创建“类对应的散列表”</p><p>”会创建类对应的散列表“指的是：会在HashSet、Hashtable、HashMap等等本质是散列表的数据结构中用到该类。例如：会创建该类的HashMap集合</p><p>在这种情况下，该类的”hasnCode()和equals()“是有关系的：</p><ul><li>如果两个对象相等，那么他们的hashCode()值一定相同。这里的相等指的是：通过equals()比较两个对象时返回true。</li><li>如果两个对象hashCode()相等，它们并不一定相等。在散列表中，hashCode()相等，即两个键值对的哈希值相等，但是哈希值相等，并不一定能够得出键值对相等。（两个不同的键值对，哈希值相等，这是哈希冲突）<br>此外，在这种情况下。若要判断两个对象是否相等，除了要覆盖equals()之外，也要覆盖hashCode()函数。否则，equals()无效。</li></ul></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 个人笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Git常用命令</title>
       <link href="/posts/1b99.html"/>
       <url>/posts/1b99.html</url>
