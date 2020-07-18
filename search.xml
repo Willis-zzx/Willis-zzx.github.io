@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>算法思想</title>
+      <link href="/posts/7263.html"/>
+      <url>/posts/7263.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="分治思想"><a href="#分治思想" class="headerlink" title="分治思想"></a>分治思想</h1><p>将一个规模为N的问题分解为K个规模小的子问题，这些子问题相互独立且原问题性质相同。求出子问题的解，就可以得到原问题的解。</p><h1 id="动态规划算法"><a href="#动态规划算法" class="headerlink" title="动态规划算法"></a>动态规划算法</h1><p>通常用于求解于具由某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。</p><p>动态规划算法与分治法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。</p><h1 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h1><p>保证每次操作都是局部最优的，并且最后得到的结果是全局最优的。</p><h1 id="二分法"><a href="#二分法" class="headerlink" title="二分法"></a>二分法</h1><p>二分查找，也称折半查找，是一种效率极高的查找方法。</p><p>但是折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列。</p><h1 id="搜索算法"><a href="#搜索算法" class="headerlink" title="搜索算法"></a>搜索算法</h1><h1 id="回溯算法"><a href="#回溯算法" class="headerlink" title="回溯算法"></a>回溯算法</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 个人笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java hashCode()和equals()的若干问题</title>
       <link href="/posts/c465.html"/>
       <url>/posts/c465.html</url>
