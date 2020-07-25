@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Android基本组件</title>
+      <link href="/posts/34d8.html"/>
+      <url>/posts/34d8.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><p>Android应用通常由一个或多个基本组件组成，可能包括Activity、Service、BroadcastReceiver、ContentProvider等。</p><h1 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>在Android应用中负责与用户进行交互的组件，我们称之为”活动”，一个Activity就是一个屏幕。每一个活动都被实现为一个独立的类，并且从活动基类中继承而来，活动类将会显示由视图控件组成的用户接口，并对事件作出响应。 Android应用需要多个用户界面，将会包含多个Activity，多个Activity组成了Activity栈，当前活动的Activity位于栈顶。</p><h1 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h1><h2 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h2><p>它也代表一个单独的Android 组件，Service与Activity的区别在于： Service通常位于后台运行，它一般不需要与用户交互，因此Service组件没有图形用户界面。同样， Service组件需要继承Service基类。 一个Service被运行起来之后，它将拥有自己独立的生命周期， Service组件通常用于为其他组件提供后台服务或监控其他组件的运行状态。</p><h1 id="BroadcastReceiver"><a href="#BroadcastReceiver" class="headerlink" title="BroadcastReceiver"></a>BroadcastReceiver</h1><h2 id="概念-2"><a href="#概念-2" class="headerlink" title="概念"></a>概念</h2><p>代表广播消息接收器，非常类似于事件编程中的监听器，所监听的事件源是Android应用中的其他组件。</p><h1 id="ContentProvider"><a href="#ContentProvider" class="headerlink" title="ContentProvider"></a>ContentProvider</h1><h2 id="概念-3"><a href="#概念-3" class="headerlink" title="概念"></a>概念</h2><p>提供一种跨应用的数据交换的标准。当应用继承ContentProvider类，并重写该类用于提供数据和存储数据的方法，就可以向其他应用共享其数据。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>算法思想</title>
       <link href="/posts/7263.html"/>
       <url>/posts/7263.html</url>
@@ -113,7 +138,7 @@
       
       <categories>
           
-          <category> 个人笔记 </category>
+          <category> 排序算法 </category>
           
       </categories>
       
