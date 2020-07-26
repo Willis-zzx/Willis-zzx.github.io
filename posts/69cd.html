@@ -462,7 +462,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-05-16
+                    2020-07-26
                 </div>
                 
 
@@ -493,7 +493,7 @@
             <div id="articleContent">
                 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>归并排序是建立在归并操作上的一种有效的排序算法。<br>该算法是采用分治法。<br>作为一种典型的分而治之的算法，归并排序的实现有两种方法：<br>    自上而下的递归（由于所有的递归方法都可以用迭代重写，所以还有第二种方法）<br>    自下而上的迭代；<br>PS：递归虽然有简洁的优点，但是也有显著的缺点：<br>    1.时间、空间方面：由于递归是函数调用自身，而函数调用是有时间和空间的消耗的，每一次函数调用，都需要在内存栈中分配空间以保存参数、返回地址以及临时变量，而且往栈中压入数据和弹出数据都需要时间。<br>    2.效率方面：递归中很多计算都是重复的，从而性能带来很大的负面影响。递归的本质是把一个问题分解成两个或多个小问题。如果多个小问题存在相互重叠的部分，就存在重复的计算。<br>    3.调用栈溢出：递归每调用一次函数都需要为函数在内存栈中分配空间，而每一个进程的栈容量是有限的。当递归调用的层次太多时，就会超出栈的容量，从而导致调用栈溢出。如求 1+2+3+4+….+n的和，如果n为10，结果可以返回，但如果n为5000，那么得出来的结果就会出错。</p>
 <h2 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h2><p>1.申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后得序列；<br>2.设定两个指针，最初位置分别为两个已经排序序列的起始位置；<br>3.比较两个指针所指向的元素，选择较小的元素放入到合并空间，并移动指针到下一位置；<br>4.重复步骤3直到某一指针达到序列尾；<br>5.将另一序列剩下的所有元素直接复制到合并序列列尾。</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p><img src="img/mergeSort.gif" alt=""></p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p><img src="F:%5Cblog2%5Csource_posts%5Cimg%5CmergeSort.gif" alt="mergeSort"></p>
 <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><pre><code>function mergeSort(arr) {  // 采用自上而下的递归方法
     var len = arr.length;
     if(len &lt; 2) {
